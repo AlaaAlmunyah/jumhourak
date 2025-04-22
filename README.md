@@ -6,7 +6,7 @@
 
 ## 🔍 What Does Jumhourak Do?
 
-- 🧠 Performs deep linguistic analysis on Arabic film ideas using **DeepSeek AI**
+- 🧠 Leverages **DeepSeek AI** to analyze Arabic film ideas and extract marketing insights tailored to audience trends
 - 🎟 Pulls real-time insights from the **Saudi Box Office** (official Ministry of Culture source)
 - 🎞 Matches your film with **similar successful titles** and identifies audience overlap
 - 📊 Recommends optimal **distribution strategies** (platforms, timing, breakdown)
