@@ -4,7 +4,7 @@
 
 ---
 
-## 🔍 What Does Jumhourak Do?
+##  What Does Jumhourak Do?
 
 -  Leverages **DeepSeek AI** to analyze Arabic film ideas and extract marketing insights tailored to audience trends
 -  Pulls real-time insights from the **Saudi Box Office** (official Ministry of Culture source)
