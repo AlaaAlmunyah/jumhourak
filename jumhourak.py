@@ -5,14 +5,12 @@ from bs4 import BeautifulSoup
 import json
 import re
 
-# ---- Page Config ----
 st.set_page_config(layout="wide", page_title="FilmScope AI")
 
 # ---- API KEYS ----
 TMDB_API_KEY = "API_KEY"
 DEEPSEEK_API_KEY = "sk-API_KEY"
 
-# ---- Get Box Office Data ----
 def get_box_office_data():
     url = "https://film.moc.gov.sa/en/Box-Office"
     response = requests.get(url)
@@ -34,7 +32,6 @@ def get_box_office_data():
             })
     return pd.DataFrame(data)
 
-# ---- Analyze Film with DeepSeek ----
 def analyze_with_deepseek(prompt):
     url = "https://api.deepseek.com/v1/chat/completions"
     headers = {
@@ -63,23 +60,19 @@ def analyze_with_deepseek(prompt):
     response = requests.post(url, headers=headers, json=payload)
     text_output = response.json()['choices'][0]['message']['content']
 
-    # استخدم try-catch للتعامل مع النصوص غير القياسية
     try:
-        # محاولة إصلاح التنسيق يدويًا:
         clean = text_output.strip()
         if clean.startswith("```json"):
             clean = clean.replace("```json", "").replace("```", "")
         fixed_json = re.sub(r"(\w+):", r'"\1":', clean)  # key: → "key":
-        fixed_json = fixed_json.replace("'", '"')  # توحيد علامات الاقتباس
+        fixed_json = fixed_json.replace("'", '"') 
         fixed_json = fixed_json.replace("True", "true").replace("False", "false")
         return json.loads(fixed_json), None
     except Exception as e:
         return None, text_output
 
-# ---- Load Box Office (optional)
 box_office_df = get_box_office_data()
 
-# ---- UI Layout ----
 st.title("🎬 FilmScope AI")
 user_prompt = st.text_input("📝 اكتب فكرة فيلمك بالعربي:")
 
