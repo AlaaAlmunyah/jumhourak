@@ -9,8 +9,8 @@ import re
 st.set_page_config(layout="wide", page_title="FilmScope AI")
 
 # ---- API KEYS ----
-TMDB_API_KEY = "5f65eeac1050301b9fab91b70f7ff103"
-DEEPSEEK_API_KEY = "sk-12c3809ec6f847f28c9ee1dd5609c4ec"
+TMDB_API_KEY = "API_KEY"
+DEEPSEEK_API_KEY = "sk-API_KEY"
 
 # ---- Get Box Office Data ----
 def get_box_office_data():
